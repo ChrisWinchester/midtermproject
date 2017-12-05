@@ -7,12 +7,12 @@ body {
 
 /** HEADER **/
 #header-nav {
-  background-color: #7f8c8d;
+  background-color: #222;
   border-radius: 0;
   border: 0;
 }
 
-#logo-img {
+#logo-img{
   background: url('../images/logo.png') no-repeat;
   width: 150px;
   height: 150px;
@@ -82,22 +82,38 @@ body {
 .panel-footer div.row {
   margin-bottom: 35px;
 }
-#hours, #address {
+#hours, #address,#contact,#social-media {
   line-height: 2;
 }
 #hours > span, #address > span {
   font-size: 1.3em;
 }
 #address p {
-  color: #557c3e;
-  font-size: .8em;
+  padding-left: 15px;
   line-height: 1.8;
 }
-#testimonials {
-  font-style: italic;
+
+.push-aside{
+  margin-left: 30px;
 }
-#testimonials p:nth-child(2) {
-  margin-top: 25px;
+
+#email a{
+  color: #e74c3c;
+}
+
+#email a:hover{
+  text-decoration: none;
+}
+#contact{
+
+}
+/* important links*/
+.link{
+  cursor: pointer;
+}
+.link:hover{
+  color:red;
+
 }
 /* END FOOTER */
 
@@ -283,22 +299,6 @@ h3.menu-item-title {
   #collapsable-nav a span { /* Collapsed nav menu glyph */
     font-size: 1em;
     margin-right: 5px;
-  }
-
-  #call-btn > a {
-    font-size: 1.5em;
-    display: block;
-    margin: 0 20px;
-    padding: 10px;
-    border: 2px solid #fff;
-    background-color: #f6b319;
-    color: #3498db;
-  }
-  #xs-deliver {
-    margin-top: 5px;
-    font-size: .7em;
-    letter-spacing: .1em;
-    text-transform: uppercase;
   }
   /* End Header */
 
