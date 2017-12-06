@@ -362,5 +362,9 @@ h3.menu-item-title {
   }
 }
 
-
+.personel span{
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 24px;
+}
 
