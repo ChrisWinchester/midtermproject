@@ -110,6 +110,9 @@ body {
 /* important links*/
 .link{
   cursor: pointer;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 30px;
 }
 .link:hover{
   color:red;
@@ -416,4 +419,8 @@ h5.menu-item-title {
 #lisan, #yuklisan {
   background: url('../images/announce.png') no-repeat;
   background-position: center;
+}
+
+#hours.middle{
+  text-align: center;
 }

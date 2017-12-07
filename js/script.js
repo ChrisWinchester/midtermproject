@@ -5,10 +5,11 @@ document.addEventListener("DOMContentLoaded",
  var persbtn = document.getElementById('specials-tile');
  var egitmbtn = document.getElementById('menu-tile');
 
+
  var message;
     
     // listen form personel click..................
-      persbtn.addEventListener("click", function () {
+persbtn.addEventListener("click", function () {
         // Call server to get the name
        document.getElementById('jumbo').style.display = "none";
        document.getElementById('render').innerHTML = " ";
@@ -42,10 +43,10 @@ document.addEventListener("DOMContentLoaded",
                " <span class=\"put-there\">Education</span>"+
                " <div class=\"row\">" +
                    "<div class=\"col-md-6 col-sm-6 col-xs-12\">"+
-                    "<div id=\"lisan\"><span>LISANS</span></div>" +
+                    "<div id=\"lisan\" onclick=\"getdonemforunder()\"><span>UNDERGRADUATE</span></div>" +
                  " </div>"+
                  " <div class=\"col-md-6 col-sm-6 col-xs-12\">"+
-                    "<div id=\"yuklisan\"><span>YUSEK LISANS</span></div>"+
+                    "<div id=\"yuklisan\" onclick=\"getdonemforgrade()\"><span>GRADUATE</span></div>"+
                   "</div>"+
                 "</div>"+
             "</div>";
@@ -64,6 +65,7 @@ document.addEventListener("DOMContentLoaded",
             var i;
             document.getElementById('render').innerHTML = " ";           
           //  console.log(res[0].uyerller[0].name);
+
             
             for(i=0;i<res[0].uyerller.length;i++){
                 message = 
@@ -140,8 +142,9 @@ document.addEventListener("DOMContentLoaded",
                       "<div class=\"menu-item-description col-sm-7\">"+
                       "<h5 class=\"menu-item-title\">"+"Name: "+res[2].teknik[i].name +"</h5>"+
                       "<h5 class=\"menu-item-title\">"+"Education: "+res[2].teknik[i].edu +"</h5>"+
-                      "<h5 class=\"menu-item-title\">"+"Specialization:"+res[2].teknik[i].field +"</h5>"+
                       "<div class=\"clearfix visible-lg-block visible-md-block\">"+
+                      "<h5 class=\"menu-item-title\">"+"Specialization:"+res[2].teknik[i].field +"</h5>"+
+                      "<div class=\"clearfix visible-sm-block visible-md-block\">"+
                         "</div>"+
                     "</div>"+
                     "<hr class=\"visible-xs\">"+
@@ -150,5 +153,124 @@ document.addEventListener("DOMContentLoaded",
                 document.getElementById('render').insertAdjacentHTML('afterbegin',message);
             }
          });
+        }
+
+        function getdonemforunder(){
+            
+            document.getElementById('render').innerHTML = " ";
+
+            message = 
+            "<div class=\"jumbotro\" >"+
+               " <span class=\"put-there\">semester</span>"+
+               " <div class=\"row\">" +
+                   "<div class=\"col-md-6 col-sm-6 col-xs-12\">"+
+                    "<div id=\"lisan\" onclick=\"underfall()\"><span>FALL</span></div>" +
+                 " </div>"+
+                 " <div class=\"col-md-6 col-sm-6 col-xs-12\">"+
+                    "<div id=\"yuklisan\" onclick=\"underautumn()\"><span>AUTUMN</span></div>"+
+                  "</div>"+
+                "</div>"+
+            "</div>";
+
+            document.getElementById('render').insertAdjacentHTML('afterbegin',message);
+        }
+        function getdonemforgrade(){
+            
+            document.getElementById('render').innerHTML = " ";
+
+            message = 
+            "<div class=\"jumbotro\" >"+
+               " <span class=\"put-there\">semester</span>"+
+               " <div class=\"row\">" +
+                   "<div class=\"col-md-6 col-sm-6 col-xs-12\">"+
+                    "<div id=\"lisan\" onclick=\"gradefall()\"><span>FALL</span></div>" +
+                 " </div>"+
+                 " <div class=\"col-md-6 col-sm-6 col-xs-12\">"+
+                    "<div id=\"yuklisan\" onclick=\"gradeautumn()\"><span>AUTUMN</span></div>"+
+                  "</div>"+
+                "</div>"+
+            "</div>";
+
+            document.getElementById('render').insertAdjacentHTML('afterbegin',message);
+        }
+
+        function underfall(){
+             document.getElementById('render').innerHTML = " ";
+            var message = 
+            "<div class=\"jumbotro\" >"+
+               " <span class=\"put-there\">undergraduate fall</span>"+
+               " <div class=\"row\">" +
+                   "<div class=\"col-md-6 col-sm-6 col-xs-12\">"+
+                    "<div id=\"lisan\"><span>1</span></div>" +
+                 " </div>"+
+                 " <div class=\"col-md-6 col-sm-6 col-xs-12\">"+
+                    "<div id=\"yuklisan\"><span>2</span></div>"+
+                  "</div>"+
+                  " <div class=\"col-md-6 col-sm-6 col-xs-12\">"+
+                    "<div id=\"yuklisan\"><span>3</span></div>"+
+                  "</div>"+
+                  " <div class=\"col-md-6 col-sm-6 col-xs-12\">"+
+                    "<div id=\"yuklisan\"><span>4</span></div>"+
+                  "</div>"+
+                "</div>"+
+            "</div>";
+            document.getElementById('render').insertAdjacentHTML('afterbegin',message);
+
+        }
+        function underautumn(){
+            document.getElementById('render').innerHTML = " ";
+            var message = 
+            "<div class=\"jumbotro\" >"+
+               " <span class=\"put-there\">undergraduate Autumn</span>"+
+               " <div class=\"row\">" +
+                   "<div class=\"col-md-6 col-sm-6 col-xs-12\">"+
+                    "<div id=\"lisan\"><span>1</span></div>" +
+                 " </div>"+
+                 " <div class=\"col-md-6 col-sm-6 col-xs-12\">"+
+                    "<div id=\"yuklisan\"><span>2</span></div>"+
+                  "</div>"+
+                  " <div class=\"col-md-6 col-sm-6 col-xs-12\">"+
+                    "<div id=\"yuklisan\"><span>3</span></div>"+
+                  "</div>"+
+                  " <div class=\"col-md-6 col-sm-6 col-xs-12\">"+
+                    "<div id=\"yuklisan\"><span>4</span></div>"+
+                  "</div>"+
+                "</div>"+
+            "</div>";
+            document.getElementById('render').insertAdjacentHTML('afterbegin',message);
+        }
+        function gradefall(){
+            document.getElementById('render').innerHTML = " ";
+            var message = 
+            "<div class=\"jumbotro\" >"+
+               " <span class=\"put-there\">graduate fall</span>"+
+               " <div class=\"row\">" +
+                   "<div class=\"col-md-6 col-sm-6 col-xs-12\">"+
+                    "<div id=\"lisan\"><span>1</span></div>" +
+                 " </div>"+
+                 " <div class=\"col-md-6 col-sm-6 col-xs-12\">"+
+                    "<div id=\"yuklisan\"><span>2</span></div>"+
+                  "</div>"+
+                "</div>"+
+            "</div>";
+            document.getElementById('render').insertAdjacentHTML('afterbegin',message);
+
+        }
+        function gradeautumn(){
+            document.getElementById('render').innerHTML = " ";
+            var message = 
+            "<div class=\"jumbotro\" >"+
+               " <span class=\"put-there\">graduate Autumn</span>"+
+               " <div class=\"row\">" +
+                   "<div class=\"col-md-6 col-sm-6 col-xs-12\">"+
+                    "<div id=\"lisan\"><span>1</span></div>" +
+                 " </div>"+
+                 " <div class=\"col-md-6 col-sm-6 col-xs-12\">"+
+                    "<div id=\"yuklisan\"><span>2</span></div>"+
+                  "</div>"+
+                "</div>"+
+            "</div>";
+            document.getElementById('render').insertAdjacentHTML('afterbegin',message);
+
         }
 
