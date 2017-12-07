@@ -1,0 +1,27 @@
+[
+	{
+		"uyerller":[
+			{"name":"chris","edu":"phd","field":"Cyber"},
+			{"name":"fredy","edu":"phd","field":"network"},
+			{"name":"oscar","edu":"ms","field":"database"}
+		]
+	},
+	{
+		"yardimci":[
+			{"name":"onur","edu":"bs","field":"lab"},
+			{"name":"ana","edu":"bs","field":"algorithm"},
+			{"name":"becky","edu":"ms","field":"it"}
+		]
+	},
+	{
+		"teknik":[
+			{"name":"dany","edu":"highschool","field":"security"},
+			{"name":"cloy","edu":"highschool","field":"cleanness"},
+			{"name":"oscar","edu":"highscool","field":"database"}
+		]
+	}
+]
+
+
+  
+ 

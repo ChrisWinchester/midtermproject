@@ -1,0 +1,129 @@
+$(function () { // Same as document.addEventListener("DOMContentLoaded"...
+
+    // Same as document.querySelector("#navbarToggle").addEventListener("blur",...
+    $("#navbarToggle").blur(function (event) {
+        var screenWidth = window.innerWidth;
+        if (screenWidth < 768) {
+            $("#collapsable-nav").collapse('hide');
+        }
+    });
+
+    // In Firefox and Safari, the click event doesn't retain the focus
+    // on the clicked button. Therefore, the blur event will not fire on
+    // user clicking somewhere else in the page and the blur event handler
+    // which is set up above will not be called.
+    // Refer to issue #28 in the repo.
+    // Solution: force focus on the element that the click event fired on
+    $("#navbarToggle").click(function (event) {
+        $(event.target).focus();
+    });
+});
+
+(function (global) {
+
+    var dc = {};
+
+    var homeHtml = "snippets/home-snippet.html";
+
+// Convenience function for inserting innerHTML for 'select'
+    var insertHtml = function (selector, html) {
+        var targetElem = document.querySelector(selector);
+        targetElem.innerHTML = html;
+    };
+
+// Show loading icon inside element identified by 'selector'.
+    var showLoading = function (selector) {
+        var html = "<div class='text-center'>";
+        html += "<img src='images/ajax-loader.gif'></div>";
+        insertHtml(selector, html);
+    };
+
+// On page load (before images or CSS)
+    document.addEventListener("DOMContentLoaded", function (event) {
+
+// On first load, show home view
+        showLoading("#main-content");
+        $ajaxUtils.sendGetRequest(
+            homeHtml,
+            function (responseText) {
+                document.querySelector("#main-content")
+                    .innerHTML = responseText;
+            },
+            false);
+    });
+
+
+    global.$dc = dc;
+
+})(window);
+
+
+
+// Event handling
+document.addEventListener("DOMContentLoaded",
+  function (event) {
+
+    // variables.
+   // var personelbtn = document.getElementById('speacial-tile');
+   // var educationbtn = document.getElementById('menu-tile');
+   // var personelelement = document.getElementById('render');
+
+    // URLS
+    var personelUrl = "../sippets/personel.html";
+    // Unobtrusive event binding
+
+    document.getElementById('btn')
+      .addEventListener("click", function () {
+        
+        // Call server to get the name
+        $ajaxUtils
+          .sendGetRequest("https://api.myjson.com/bins/n4qwv", 
+            function (res) {
+              
+            var element = document.getElementById('content');
+      
+              var message;
+              var  i,j;
+                for(i =0; i < 3;i++){
+                  message = 
+                  "<div class=\"col-md-6 col-lg-6 col-sm-12 new\">"+
+                  "<h2 style=\"color:red;text-align:center;\">" + "<a href=\"\">"+ res[0].uyerller[i].name +"</a>" + "</h2></br>"+
+                  "</div>";
+
+                  element.insertAdjacentHTML('afterend',message);
+                }
+
+            });
+      });
+  }
+);
+
+
+var message = 
+            "<div class=\"personel\">"+
+               " <span>personel</span>"+
+               " <div class=\"row\">" +
+                   "<div class=\"col-md-4 col-sm-6 col-xs-12\">"+
+                    "<a href=\"\"><div id=\"menu-tile\"><span>UYELER</span></div></a>" +
+                 " </div>"+
+                 " <div class=\"col-md-4 col-sm-6 col-xs-12\">"+
+                    "<a href=\"\"><div id=\"specials-tile\"><span>YARDIMCI</span></div></a>"+
+                  "</div>"+
+                  "<div class=\"col-md-4 col-sm-6 col-xs-12\">"+
+                    "<a href=\"\"><div id=\"specials-tile\"><span>TEKNIK</span></div></a>"+
+                  "</div>"+
+                "</div>"+
+                
+            "</div>";
+
+
+********************************************
+                message = 
+                "<div class=\"row\">"+
+                   "<div class=\"col-lg-4 col-md-6 col-sm-6 col-xs-12\">"+
+                        res[0].uyerller[i].name + " " + "</br>" +
+                        res[0].uyerller[i].edu + " " + "</br>" +
+                        res[0].uyerller[i].field + " " + "</br>" +
+                   "</div>"+
+                "</div>";
+                document.getElementById('render').insertAdjacentHTML('afterbegin',message);
